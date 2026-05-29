@@ -1,3 +1,4 @@
+import math
 from dataclasses import dataclass
 
 from pymatgen.core import Structure
@@ -7,8 +8,10 @@ from pymatgen.core import Structure
 class Sample:
     mp_id: str
     structure: Structure
-    target: float
+    target: float  # ω_max in cm⁻¹
 
     def __post_init__(self):
-        if not (self.target > 0 and self.target == self.target):  # finite + > 0
-            raise ValueError(f"target must be positive finite, got {self.target}")
+        if not (math.isfinite(self.target) and self.target > 0):
+            raise ValueError(
+                f"target must be positive finite, got {self.target}"
+            )

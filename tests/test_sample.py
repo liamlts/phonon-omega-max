@@ -27,3 +27,11 @@ def test_sample_is_frozen():
     s = Sample(mp_id="mp-22862", structure=_rocksalt(), target=412.0)
     with pytest.raises((AttributeError, TypeError)):
         s.target = 999.0
+
+
+def test_sample_rejects_inf_and_nan_target():
+    import math
+    with pytest.raises(ValueError):
+        Sample(mp_id="mp-0", structure=_rocksalt(), target=float("inf"))
+    with pytest.raises(ValueError):
+        Sample(mp_id="mp-0", structure=_rocksalt(), target=math.nan)

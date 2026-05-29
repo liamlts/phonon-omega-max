@@ -35,3 +35,9 @@ def test_sample_rejects_inf_and_nan_target():
         Sample(mp_id="mp-0", structure=_rocksalt(), target=float("inf"))
     with pytest.raises(ValueError):
         Sample(mp_id="mp-0", structure=_rocksalt(), target=math.nan)
+
+
+def test_fake_samples_fixture(fake_samples):
+    assert len(fake_samples) == 12
+    assert all(s.target > 0 for s in fake_samples)
+    assert {len(s.structure) for s in fake_samples} == {2}

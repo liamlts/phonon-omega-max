@@ -39,7 +39,7 @@ def _fetch_matbench_df() -> pd.DataFrame:
     """
     from monty.json import MontyDecoder
 
-    with urllib.request.urlopen(MATBENCH_PHONONS_URL) as resp:
+    with urllib.request.urlopen(MATBENCH_PHONONS_URL, timeout=60) as resp:
         raw = resp.read()
     payload = json.loads(gzip.decompress(raw).decode())
     decoder = MontyDecoder()
@@ -47,8 +47,13 @@ def _fetch_matbench_df() -> pd.DataFrame:
     mp_ids = list(payload["index"])
     cols = list(payload["columns"])
     data_rows = payload["data"]
-    target_col_idx = next(i for i, c in enumerate(cols) if c != "structure")
+    if "structure" not in cols or "last phdos peak" not in cols:
+        raise RuntimeError(
+            f"unexpected matbench schema; expected 'structure' and 'last phdos peak' "
+            f"columns, got {cols}"
+        )
     struct_col_idx = cols.index("structure")
+    target_col_idx = cols.index("last phdos peak")
 
     structures = [decoder.process_decoded(row[struct_col_idx]) for row in data_rows]
     targets = [float(row[target_col_idx]) for row in data_rows]

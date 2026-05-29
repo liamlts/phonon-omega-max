@@ -39,7 +39,11 @@ def _fetch_matbench_df() -> pd.DataFrame:
     """
     from monty.json import MontyDecoder
 
-    with urllib.request.urlopen(MATBENCH_PHONONS_URL, timeout=60) as resp:
+    req = urllib.request.Request(
+        MATBENCH_PHONONS_URL,
+        headers={"User-Agent": "phonon-omega-max/0.1 (research; +https://github.com/)"},
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
         raw = resp.read()
     payload = json.loads(gzip.decompress(raw).decode())
     decoder = MontyDecoder()

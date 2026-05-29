@@ -1,0 +1,33 @@
+[project]
+name = "phonon-omega-max"
+version = "0.1.0"
+description = "Predict maximum phonon frequency from composition and crystal structure"
+authors = [{ name = "Liam Schmidt" }]
+requires-python = ">=3.11"
+dependencies = [
+    "matminer>=0.9",
+    "pymatgen>=2024.1",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "pandas>=2.1",
+    "pyarrow>=14",
+    "torch>=2.2",
+    "torch-geometric>=2.4",
+    "scikit-learn>=1.4",
+    "matplotlib>=3.8",
+    "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=4", "pytest-mock>=3"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["phonon_omegamax*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

@@ -1,0 +1,12 @@
+seed: 42
+seeds: [0, 1, 2, 3, 4]
+epochs: 200
+batch_size: 64
+lr: 0.001
+patience: 30
+huber_delta: 10.0
+hidden: 64
+n_conv: 3
+n_dense: 128
+dropout: 0.2
+cutoff_ang: 8.0

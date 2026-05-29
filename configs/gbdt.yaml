@@ -1,0 +1,6 @@
+random_state: 42
+max_iter: 500
+learning_rate: 0.05
+max_leaf_nodes: 63
+early_stopping: true
+validation_fraction: 0.2

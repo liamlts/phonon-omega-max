@@ -73,3 +73,7 @@ the rest of the OpenMP-using stack from stepping on each other.
 
 Phonon data and structures from the Materials Project (CC-BY 4.0),
 delivered via the same JSON the Matbench benchmark distributes.
+
+## License
+
+MIT — see [`LICENSE`](LICENSE). Materials Project data is CC-BY 4.0.

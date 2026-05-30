@@ -51,8 +51,8 @@ def run_cgcnn_cv(
     cache_dir: Path,
     ckpt_dir: Path,
     metrics_dir: Path,
-    seeds: tuple[int, ...] = (0, 1, 2, 3, 4),
-    epochs: int = 200,
+    seeds: tuple[int, ...] = (0, 1, 2),
+    epochs: int = 100,
     seed: int = 42,
 ) -> dict:
     cache_dir = Path(cache_dir)

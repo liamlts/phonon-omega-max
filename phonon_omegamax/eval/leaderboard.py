@@ -27,7 +27,7 @@ def build_leaderboard(
     if ours_cgcnn is not None:
         delta = ""
         if gbdt_mae is not None:
-            delta = f"+{gbdt_mae - ours_cgcnn['mae_mean']:.1f}"
+            delta = f"{gbdt_mae - ours_cgcnn['mae_mean']:+.1f}"
         lines.append(
             f"| CGCNN (ours) | "
             f"{ours_cgcnn['mae_mean']:.1f} ± {ours_cgcnn['mae_std']:.1f} | "

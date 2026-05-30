@@ -16,7 +16,7 @@ def train_fold_ensemble(
     val_ds,
     ckpt_dir: Path,
     fold: int,
-    seeds: tuple[int, ...] = (0, 1, 2, 3, 4),
+    seeds: tuple[int, ...] = (0, 1, 2),
     **train_kwargs,
 ) -> list[Path]:
     ckpt_dir = Path(ckpt_dir)

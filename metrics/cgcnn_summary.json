@@ -1,0 +1,9 @@
+{
+  "model": "cgcnn",
+  "mae_mean": 94.68088449839098,
+  "mae_std": 12.397776073073713,
+  "r2_mean": 0.7986639160959604,
+  "r2_std": 0.04968994229476082,
+  "n_folds": 3,
+  "note": "partial: folds 0-1 ensembled over 3 seeds, fold 2 single-seed, folds 3-4 not run"
+}

@@ -6,5 +6,6 @@ __pycache__/
 data/cache/
 checkpoints/
 runs/
+*.log
 .ipynb_checkpoints/
 .DS_Store

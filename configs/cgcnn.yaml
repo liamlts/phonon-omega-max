@@ -1,5 +1,5 @@
 seed: 42
-seeds: [0, 1, 2, 3, 4]
+seeds: [0, 1, 2]
 epochs: 200
 batch_size: 64
 lr: 0.001

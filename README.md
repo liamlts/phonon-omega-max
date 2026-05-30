@@ -7,9 +7,28 @@ structure-based CGCNN.
 
 ![headline](figures/headline.png)
 
-## Leaderboard
+## Headline result
 
-_filled in after run_ — see `figures/leaderboard.md`.
+A 30-line scikit-learn baseline (composition-only Magpie features + gradient
+boosting) hits **MAE = 70.1 ± 10.3 cm⁻¹, R² = 0.91** on 5-fold CV — beating
+the published Roost baseline (75.6 cm⁻¹) on the same Matbench `phonons` task.
+
+| Model | MAE (cm⁻¹) | R² | n_folds |
+|---|---|---|---|
+| **Magpie + GBDT (this repo)** | **70.1 ± 10.3** | **0.910** | 5 |
+| CGCNN (this repo, partial)    | 94.7 ± 12.4     | 0.799     | 3 |
+| Roost (published)             | 75.6            | —         | 5 |
+| CGCNN (published)             | 57.8            | —         | 5 |
+| MEGNet (published)            | 49.9            | —         | 5 |
+| ALIGNN (published)            | 29.5            | —         | 5 |
+
+Full table in `figures/leaderboard.md`. Per-fold JSON in `metrics/`.
+
+> The CGCNN result is partial (3 of 5 CV folds, 1–3 seeds per fold) and
+> undercooked vs the published config — 100 epochs with `patience=30` was
+> the laptop-CPU budget, well below the ~500-epoch training the original
+> CGCNN paper used. Treat the GBDT line, not the CGCNN line, as this
+> repo's actual benchmark.
 
 ## Reproduce
 

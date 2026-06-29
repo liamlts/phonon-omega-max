@@ -1,5 +1,8 @@
 # phonon-omega-max
 
+[![CI](https://github.com/liamlts/phonon-omega-max/actions/workflows/ci.yml/badge.svg)](https://github.com/liamlts/phonon-omega-max/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Regression of ω_max (last-peak phonon frequency, cm⁻¹) for 1,265
 inorganic crystals on the Matbench `phonons` task, comparing a
 composition-only Magpie + GBDT baseline against a hand-implemented
